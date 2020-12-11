@@ -4,8 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-//Let's create the Book model,and  made the Book attributes mass assignable.
-
 class book extends Model
 {
 

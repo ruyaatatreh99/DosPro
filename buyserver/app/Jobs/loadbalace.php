@@ -9,7 +9,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ExampleJob extends Job
+class loadbalace extends Job
 {
    use SerializesModels;
 
@@ -24,7 +24,7 @@ class ExampleJob extends Job
      *
      * @return void
      */
-    public function handle()
+    public function handle()//handle method which is called when the job is processed by the queue
     {
         //
     }

@@ -6,7 +6,14 @@
     "type": "project",
     "require": {
         "php": "^7.3|^8.0",
-        "laravel/lumen-framework": "^8.0"
+        "illuminate/cache": "^8.18",
+        "illuminate/contracts": "^8.18",
+        "illuminate/queue": "^8.18",
+        "illuminate/redis": "^8.18",
+        "illuminate/support": "^8.18",
+        "laravel/lumen-framework": "^8.0",
+        "marcelotk15/round-robin": "^0.1.0",
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.9.1",

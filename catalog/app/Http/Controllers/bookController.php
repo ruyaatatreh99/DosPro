@@ -1,48 +1,78 @@
 <?php
 
 namespace App\Http\Controllers;
-//we have use App\book, which allowed us to require the book model that we created earlier.
+
 use App\book;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redis;
+use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
+use Cache;
+use Laravel\RoundRobin\RoundRobin;
+//php -S localhost:8000 -t public
 
 class bookController extends Controller
 {
-    // we've created the following five methods:
 
-    public function lookupbook($id) //checks for a single book resource
+    public function lookupbook($id)
     {
-        return response()->json(book::find($id));
-        //response() - global helper function that obtains an instance of the response factory
-        //response()->json() - returns the response in JSON format
+           if (Cache::has($id)) {//check if item exisy in cache
+        $value = Cache::get($id);// get item from cache
+        return response()->json($value);
+}
+        else{
+            $expiresAt = 10;//the expiration time of the cached item
+              $b= book::find($id);
+           $q= $b['quntity'];
+        $name= $b['name'];
+           $cost= $b['cost'];
+             Cache::put($id, $name,$cost,$q, $expiresAt);//insert value in cache
+            return response()->json($b);
+        }
+        
     }
 
-    public function searchbook($name)//checks for a single book resource
+    public function searchbook($name)
     {     
- return response()->json(book::find($name));
-
+  if (Cache::has($name)) {//check if item exisy in cache
+        $value = Cache::get($name);// get item from cache
+        return response()->json($value);
+}
+        else{
+            $expiresAt = 10;//the expiration time of the cached item
+           $b= book::find($name);
+           $q= $b['quntity'];
+               $id= $b['id'];
+            $cost= $b['cost'];
+            Cache::put($id, $name,$cost,$q, $expiresAt);// store items in the cache
+            return response()->json($b);
+        }
     }
 
-   public function create(Request $request)//creates a new book resource
+   public function create(Request $request)
     {
         $books = book::create($request->all());
 
         return response()->json($books, 201);
-       //201 - HTTP status code that indicates a new resource has just been created
     }
 
- public function update($id, Request $request)//checks if a book resource exists and allows the resource to be updated
+ public function update($id, Request $request)
     {
-        $books = book::findOrFail($id);
+ 
+      $books = book::findOrFail($id);
         $books->update($request->all());
 
         return response()->json($books, 200);
-     //200 - HTTP status code that indicates the request was successful
+
+  
     }
 
-    public function delete($id) //checks if a book resource exists and deletes it
+    public function delete($id)
     {
+        $value = Cache::forget($id);//remove items from the cache
         book::findOrFail($id)->delete();
-        //findOrFail - throws a ModelNotFoundException if no result is not found
         return response('Deleted Successfully', 200);
     }
 }
+

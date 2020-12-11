@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBooksTable extends Migration
+class CreateCacheTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateBooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('books', function (Blueprint $table) {
-             $table->increments('id');
+        Schema::create('cache', function (Blueprint $table) {
+              $table->increments('id');
             $table->string('name');
             $table->integer('cost');
             $table->integer('quntity');
-            $table->timestamps();
+            $table->timestamps();;
         });
     }
 
@@ -29,8 +29,6 @@ class CreateBooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('cache');
     }
 }
-
-
