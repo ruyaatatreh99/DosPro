@@ -11,23 +11,28 @@ use Illuminate\Support\Facades\Redis;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use Cache;
-use Queue;
 use Laravel\RoundRobin\RoundRobin;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Migrations\Migration;
+use App\Equivalance;
 class buyController extends Controller
 {
 
     public function buybook(Request $request,$id) //buy functin 
     {
-       // $this->dispatchFrom('App\Jobs\loadbalace', $request);//extract variables from the HTTP request
+
+     $time=number_format((float)microtime(true) - LUMEN_START, 2);//excute run time
     if (Cache::has($id)) {
         $value = Cache::get($id);// get item from cache
         $q= $value['quntity'];
         $name= $value['name'];
         $cost= $value['cost'];
-        if ($q===0){ return response()->json('no book in store');}//checks if a book resource exists
+        if ($q===0){ return response()->json(['no book in store' , 'time=' => $time.' '.'ms']);}//checks if a book resource exists
         else{
         Cache::decrement($q,1);// update integer items in the cach
-        return response()->json('bought book  '.$name);
+        return response()->json(['bought book' => $name, 'time=' => $time.' '.'ms']);
         }
         
        }
@@ -36,11 +41,13 @@ class buyController extends Controller
             $q= $v['quntity'];
             $name= $v['name'];
             $cost= $v['cost'];
-            if ($q===0){ return response()->json('no book in store');}//checks if a book resource exists
+            if ($q===0){return response()->json(['no book in store' , 'time=' => $time.' '.'ms']);}//checks if a book resource exists
             else{
             $q=$q-1;//checks if a book resource exists and allows quntity to be updated
             $v->update(['quntity'=>$q]);
-                return response()->json('bought book  '.$name);}
+             return response()->json(['bought book' => $name, 'time=' => $time.' '.'ms']);
+               
+            }
   
            }
             

@@ -1,0 +1,8 @@
+[
+ 'rr' => [
+    'driver' => 'RoundRobin',
+    'queue' => 'default',
+    'connections' => ['q1', 'q2'],
+ ],
+
+]

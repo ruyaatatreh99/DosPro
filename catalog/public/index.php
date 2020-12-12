@@ -11,6 +11,8 @@
 |
 */
 
+// To calculate your app execution time
+define('LUMEN_START', microtime(true));
 $app = require __DIR__.'/../bootstrap/app.php';
 
 /*
