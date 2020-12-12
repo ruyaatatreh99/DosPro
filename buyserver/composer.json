@@ -10,6 +10,7 @@
         "illuminate/contracts": "^8.18",
         "illuminate/queue": "^8.18",
         "illuminate/redis": "^8.18",
+        "illuminate/session": "^8.18",
         "illuminate/support": "^8.18",
         "laravel/lumen-framework": "^8.0",
         "marcelotk15/round-robin": "^0.1.0",
@@ -42,6 +43,11 @@
     "scripts": {
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ]
-    }
+        ],
+          "storage":  [
+            "mkdir storage",
+            "mkdir storage/framework storage/framework/cache storage/framework/sessions storage/framework/testing storage/framework/views"
+        ],
+    } 
+       
 }

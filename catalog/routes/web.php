@@ -5,7 +5,22 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+$router->get('/', function (\Illuminate\Http\Request $request) {
 
+    $request->session()->put('name', 'Lumen-Session');
+
+    return response()->json([
+        'session.name' => $request->session()->get('name')
+    ]);
+});
+// Test session
+$router->get('/session', function (\Illuminate\Http\Request $request) {
+
+    return response()->json([
+        'session.name' => $request->session()->get('name'),
+    ]);
+});
+Route::any('event', 'Event_c@eventTest');
 $router->group(['prefix' => 'CATALOG_WEBSERVICE_IP'], function () use ($router) {
   $router->get('lookup/{id}',  ['uses' => 'bookController@lookupbook']);
 

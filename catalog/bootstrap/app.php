@@ -31,7 +31,17 @@ $app->configure('app');
 $app->register(Illuminate\Redis\RedisServiceProvider::class);// for cache
 $app->configure('database');
 $app->configure('cache');
+$app->middleware([
+    \Illuminate\Session\Middleware\StartSession::class,
+]);// for session
+//loadComponent just calls the $app->register and inject $app while building the ServiceProvider
+$app->singleton(Illuminate\Session\SessionManager::class, function () use ($app) {
+    return $app->loadComponent('session', Illuminate\Session\SessionServiceProvider::class, 'session');
+});
 
+$app->singleton('session.store', function () use ($app) {
+    return $app->loadComponent('session', Illuminate\Session\SessionServiceProvider::class, 'session.store');
+});
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings

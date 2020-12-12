@@ -37,6 +37,11 @@
     "scripts": {
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+         "storage":  [
+            "mkdir storage",
+            "mkdir storage/framework storage/framework/cache storage/framework/sessions storage/framework/testing storage/framework/views"
         ]
     }
+      
 }
