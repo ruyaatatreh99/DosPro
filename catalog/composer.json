@@ -6,7 +6,9 @@
     "type": "project",
     "require": {
         "php": "^7.3|^8.0",
+        "csun-metalab/lumen-proxypass": "^1.1",
         "illuminate/redis": "^8.18",
+        "jacobbennett/laravel-http2serverpush": "^5.0",
         "laravel/lumen-framework": "^8.0",
         "predis/predis": "^1.1"
     },

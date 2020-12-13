@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "70fe06ff6faaba0ef7b8c2c0cd38af00",
+    "content-hash": "2c85bf10c58d132ceee1ba4178a5e278",
     "packages": [
         {
             "name": "brick/math",
@@ -61,6 +61,49 @@
                 }
             ],
             "time": "2020-08-18T23:57:15+00:00"
+        },
+        {
+            "name": "csun-metalab/lumen-proxypass",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CSUN-IT/lumen-proxypass.git",
+                "reference": "47f4458b0f298d6fd175e4091b684776846698d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CSUN-IT/lumen-proxypass/zipball/47f4458b0f298d6fd175e4091b684776846698d2",
+                "reference": "47f4458b0f298d6fd175e4091b684776846698d2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/LumenProxyPass/"
+                ],
+                "psr-0": {
+                    "CSUNMetaLab\\LumenProxyPass\\": "src/LumenProxyPass/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew Fritz",
+                    "email": "mattf@burbankparanormal.com"
+                }
+            ],
+            "description": "Composer package for Lumen that resolves the correct absolute URLs when behind a proxy",
+            "support": {
+                "issues": "https://github.com/CSUN-IT/lumen-proxypass/issues",
+                "source": "https://github.com/CSUN-IT/lumen-proxypass/tree/1.1.0"
+            },
+            "time": "2017-11-08T19:22:35+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -1916,6 +1959,62 @@
             "time": "2020-11-02T14:01:41+00:00"
         },
         {
+            "name": "jacobbennett/laravel-http2serverpush",
+            "version": "v5.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JacobBennett/laravel-HTTP2ServerPush.git",
+                "reference": "3c60759615713c59623d05bb73166d1e51aa4a22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JacobBennett/laravel-HTTP2ServerPush/zipball/3c60759615713c59623d05bb73166d1e51aa4a22",
+                "reference": "3c60759615713c59623d05bb73166d1e51aa4a22",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "~6.0|~7.0|~8.0",
+                "illuminate/support": "~6.0|~7.0|~8.0",
+                "php": "^7.2",
+                "symfony/css-selector": "^2.7|^3.0|^4.0|^5.0",
+                "symfony/dom-crawler": "^2.7|^3.0|^4.0|^5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5",
+                "scrutinizer/ocular": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JacobBennett\\Http2ServerPush\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Bennett",
+                    "email": "me@jakebennett.net",
+                    "homepage": "https://jakebennett.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A HTTP2 Server Push Middleware for Laravel 5",
+            "homepage": "https://github.com/jacobbennett/laravel-http2serverpush",
+            "keywords": [
+                "laravel",
+                "laravel-http2serverpush",
+                "serverpush"
+            ],
+            "support": {
+                "issues": "https://github.com/JacobBennett/laravel-HTTP2ServerPush/issues",
+                "source": "https://github.com/JacobBennett/laravel-HTTP2ServerPush/tree/v5.0.3"
+            },
+            "time": "2020-09-22T22:48:43+00:00"
+        },
+        {
             "name": "laravel/lumen-framework",
             "version": "v8.2.1",
             "source": {
@@ -2982,6 +3081,71 @@
             "time": "2020-11-28T11:24:18+00:00"
         },
         {
+            "name": "symfony/css-selector",
+            "version": "v5.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/css-selector.git",
+                "reference": "b8d8eb06b0942e84a69e7acebc3e9c1e6e6e7256"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/b8d8eb06b0942e84a69e7acebc3e9c1e6e6e7256",
+                "reference": "b8d8eb06b0942e84a69e7acebc3e9c1e6e6e7256",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\CssSelector\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Jean-François Simon",
+                    "email": "jeanfrancois.simon@sensiolabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony CssSelector Component",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/css-selector/tree/v5.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-28T21:31:18+00:00"
+        },
+        {
             "name": "symfony/deprecation-contracts",
             "version": "v2.2.0",
             "source": {
@@ -3047,6 +3211,80 @@
                 }
             ],
             "time": "2020-09-07T11:33:47+00:00"
+        },
+        {
+            "name": "symfony/dom-crawler",
+            "version": "v5.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/dom-crawler.git",
+                "reference": "0969122fe144dd8ab2e8c98c7e03eedc621b368c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/0969122fe144dd8ab2e8c98c7e03eedc621b368c",
+                "reference": "0969122fe144dd8ab2e8c98c7e03eedc621b368c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "symfony/polyfill-ctype": "~1.8",
+                "symfony/polyfill-mbstring": "~1.0",
+                "symfony/polyfill-php80": "^1.15"
+            },
+            "conflict": {
+                "masterminds/html5": "<2.6"
+            },
+            "require-dev": {
+                "masterminds/html5": "^2.6",
+                "symfony/css-selector": "^4.4|^5.0"
+            },
+            "suggest": {
+                "symfony/css-selector": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\DomCrawler\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony DomCrawler Component",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/dom-crawler/tree/v5.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-24T12:01:57+00:00"
         },
         {
             "name": "symfony/error-handler",

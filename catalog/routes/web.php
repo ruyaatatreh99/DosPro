@@ -20,7 +20,7 @@ $router->get('/session', function (\Illuminate\Http\Request $request) {
         'session.name' => $request->session()->get('name'),
     ]);
 });
-Route::any('event', 'Event_c@eventTest');
+
 $router->group(['prefix' => 'CATALOG_WEBSERVICE_IP'], function () use ($router) {
   $router->get('lookup/{id}',  ['uses' => 'bookController@lookupbook']);
 

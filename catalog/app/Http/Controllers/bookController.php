@@ -39,13 +39,14 @@ class bookController extends Controller
     public function searchbook($name)
     {   
         $time=number_format((float)microtime(true) - LUMEN_START, 2); //excute run time
-  if (Cache::has($name)) {//check if item exisy in cache
-        $value = Cache::get(2);// get item from cache
+  if (Cache::has(4)) {//check if item exisy in cache
+        $value = Cache::get(4);// get item from cache
        return response()->json($value.' '.'time='.$time.' '.'ms');
 }
         else{
             $expiresAt = 10;//the expiration time of the cached item
-           $b= book::find(2);
+           
+           $b= book::find(4);
            $q= $b['quntity'];
                $id= $b['id'];
             $cost= $b['cost'];

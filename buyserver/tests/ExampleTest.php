@@ -12,10 +12,18 @@ class ExampleTest extends TestCase
      */
     public function testExample()
     {
-        $this->get('/');
+        $response = $this->call('post', '/');
+        $this->assertEquals(200, $response->status());
+        
+           $book = factory('App\book')->create();
+           $this->actingAs($book) ->get('/buy');
+        
+        
+          Cache::shouldReceive('get')
+                    ->once()
+                    ->with('id')
+                    ->andReturn('value');
 
-        $this->assertEquals(
-            $this->app->version(), $this->response->getContent()
-        );
+        $this->get('/books');
     }
 }

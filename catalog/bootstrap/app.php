@@ -42,6 +42,8 @@ $app->singleton(Illuminate\Session\SessionManager::class, function () use ($app)
 $app->singleton('session.store', function () use ($app) {
     return $app->loadComponent('session', Illuminate\Session\SessionServiceProvider::class, 'session.store');
 });
+$app->configure('proxypass');
+$app->register(CSUNMetaLab\LumenProxyPass\Providers\ProxyPassServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
